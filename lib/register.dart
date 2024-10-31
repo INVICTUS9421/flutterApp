@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:project/Appointment.dart';
-import 'package:project/login.dart'; // Ensure this path is correct
+import 'package:project/main.dart'; // Ensure this path is correct
+import 'dart:developer' as developer;
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AddAppointmentScreen(), // Set the home to RegisterPage
+      home: const RegisterPage(), // Set home to RegisterPage
     );
   }
 }
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -45,7 +45,6 @@ class _RegisterPageState extends State<RegisterPage> {
         title: const Text('Register'),
       ),
       body: Center(
-        // Center the content vertically and horizontally
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Container(
@@ -58,8 +57,7 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
-                  mainAxisSize:
-                      MainAxisSize.min, // Minimize the height of the column
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     TextField(
                       controller: _nameController,
@@ -103,6 +101,11 @@ class _RegisterPageState extends State<RegisterPage> {
                         String password = _passwordController.text;
                         String cpass = _cpasswordController.text;
 
+                        developer.log('Name: $name');
+                        developer.log('Email: $email');
+                        developer.log('Password: $password');
+                        developer.log('Confirm Password: $cpass');
+
                         if (name.isEmpty ||
                             email.isEmpty ||
                             password.isEmpty ||
@@ -111,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               const SnackBar(
                                   content: Text('Please enter all fields')));
                         } else if (!emailRegex.hasMatch(email)) {
-                          ScaffoldMessenger.of(context).showSnackBar(
+                          ScaffoldMessenger.of(context ).showSnackBar(
                               const SnackBar(
                                   content: Text('Invalid email format')));
                         } else if (password != cpass) {

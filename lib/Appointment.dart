@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,11 +24,11 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Appointment {
+class appointment {
   final String title;
   final DateTime dateTime;
 
-  Appointment({required this.title, required this.dateTime});
+  appointment({required this.title, required this.dateTime});
 }
 
 class AddAppointmentScreen extends StatefulWidget {
@@ -74,7 +77,7 @@ class _AddAppointmentScreenState extends State<AddAppointmentScreen> {
     // Check if title and date/time are provided
     if (_titleController.text.isNotEmpty && _selectedDateTime != null) {
       // Create a new Appointment object
-      final newAppointment = Appointment(
+      final newAppointment = appointment(
         title: _titleController.text,
         dateTime: _selectedDateTime!,
       );

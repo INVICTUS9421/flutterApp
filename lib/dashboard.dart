@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:project/Appointment.dart';
+import 'package:project/appointment.dart';
+
+void main() {
+  runApp(const Dashboard());
+}
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Medical App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dashboard'),
       ),
-      home: DashboardScreen(),
     );
   }
 }

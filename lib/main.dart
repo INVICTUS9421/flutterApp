@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/Appointment.dart';
+import 'package:project/appointment.dart';
 import 'package:project/dashboard.dart';
 import 'package:project/register.dart'; // Make sure this path is correct
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Dashboard(),
+      home: const LoginPage(), // Set home to LoginPage
     );
   }
 }
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AddAppointmentScreen()),
+                                builder: (context) => DashboardScreen()),
                           );
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
